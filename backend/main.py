@@ -3,10 +3,18 @@ from fastapi.middleware.cors import CORSMiddleware
 import sys
 
 # Add your module paths
-sys.path.append(r"D:\WORK\Python\web\github_zone\vsl_web_new\backend\auth")
-sys.path.append(r"D:\WORK\Python\web\github_zone\vsl_web_new\backend\modules")
-sys.path.append(r"D:\WORK\Python\web\github_zone\vsl_web_new\backend\yolo")
-sys.path.append(r"D:\WORK\Python\web\github_zone\vsl_web_new\backend\monitor")
+import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+if BASE_DIR not in sys.path:
+    sys.path.append(BASE_DIR)
+# Also add subdirectories if needed, though usually adding the base dir is enough for absolute imports
+# However, the current code imports like 'from modules import ...' which implies 'backend' is in sys.path
+# or 'backend/modules' is in sys.path.
+# Looking at the original code, it was adding auth, modules, yolo, monitor separately.
+for sub in ["auth", "modules", "yolo", "monitor"]:
+    sub_path = os.path.join(BASE_DIR, sub)
+    if sub_path not in sys.path:
+        sys.path.append(sub_path)
 
 
 #Import database and models

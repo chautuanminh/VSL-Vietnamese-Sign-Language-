@@ -4,8 +4,10 @@ from fastapi.responses import JSONResponse
 from ultralytics import YOLO
 import cv2, numpy as np, base64
 
+import os
 router = APIRouter(prefix="/yolo", tags=["YOLO"])
-model = YOLO(r"D:\WORK\Python\web\github_zone\vsl_web_new\backend\yolo\model\v9_n_yolo11.pt")
+model_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "model", "v9_n_yolo11.pt")
+model = YOLO(model_path)
 
 @router.post("/predict")
 async def predict(request: Request):
