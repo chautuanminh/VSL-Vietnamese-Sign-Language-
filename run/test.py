@@ -4,7 +4,7 @@ import torch
 from ultralytics import YOLO
 
 st.set_page_config(page_title="YOLOv11 Real-time", layout="wide")
-
+#this is the app to test the model
 # Sidebar
 st.sidebar.title("YOLOv11 Real-time Inference")
 model_path = st.sidebar.text_input("Model path", r"D:\WORK\Python\CV\Webapp_vsl\model\v9_l_yolo11.pt")
