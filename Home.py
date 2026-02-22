@@ -5,7 +5,7 @@ st.set_page_config(
     page_icon="🤟",
     layout="wide"
 )
-
+#running
 # Custom CSS for navbar
 st.markdown("""
 <style>
